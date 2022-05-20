@@ -1,0 +1,60 @@
+#2) Faça um programa em Python que leia um gabarito de uma prova com 10 questões, onde cada
+#possui como resposta uma das alternativas: A, B, C, D ou E. Após ler o gabarito, o programa irá
+#pedir o nome de um aluno e suas respostas dessa prova (cartão-resposta). Cada questão correta, o
+#aluno soma pontos, de acordo com a tabela de pontuação a seguir:
+#Para cada questão errada, o aluno não soma pontos. O programa deverá informar o nome do aluno e
+#a quantidade de pontos obtida na prova.
+
+#Aqui nos abrimos duas listas e outra como de base para limitarmos a formaçãos das outras. Junto com duas variáveis, uma para o for in range e outra para a soma.
+ListaP = []
+i = 1
+Lista = ['A','B','C','D','E']
+ListaA = []
+x = 0
+
+#Aqui é a explicação para o usuário.
+print("Aqui nós vamos adicionar o gabarito de uma prova e as respostas de uma aluno. OBs: Só aceitamos: A, B, C, D e E")
+
+#Essa parte faz com que o professor adicione as notas, pois o for in range faz com que seja limitado a quantidade de vezes e ao mesmo tempo adicionamos os valores na listaP. Só que cada valor específico da listaP, tem que está contido na "Lista", pois se não o while True não permite sair desse laço. Se estiver seguindo a regra, então continua, mas se não, ele vai montrar a mensagem "Erro!" e então pedir para digitar novamente. Lembrando que temos o str que junto ao for in range, nós coseguimos atribuir sua ordem.
+while True:
+   for i in range(1,11):
+        ListaP.append(input("Escreva o gabarito da " +str(i)+"º"+ ": "))
+   if ListaP[0] in Lista and ListaP[1] in Lista and ListaP[2] in Lista and ListaP[3] in Lista and ListaP[4] in Lista and ListaP[5] in Lista and ListaP[6] in Lista and ListaP[7] in Lista and ListaP[8] in Lista and ListaP[9] in Lista:
+       break
+   else:
+       print("Erro!")
+
+#Aqui nós seguimos a mesma ideia, mas para ListaA e ainda adicionamos o nome do aluno.
+while True:
+   Aluno = input("Nome do aluno é: ")
+   for i in range(1,11):
+        ListaA.append(input("Escreva a resposta do aluno da " +str(i)+"º"+ " questão"+ ": "))
+   if ListaA[0] in Lista and ListaA[1] in Lista and ListaA[2] in Lista and ListaA[3] in Lista and ListaA[4] in Lista and ListaA[5] in Lista and ListaA[6] in Lista and ListaA[7] in Lista and ListaA[8] in Lista and ListaA[9] in Lista:
+       break
+   else:
+       print("Erro!")
+
+#Nessa parte nó abrimos uma condição, se o primeiro elemento da ListaA, que é do aluno, estiver igual ao elemento da ListaP, que é do professor, estão soma uma quantidade de pontos para o aluno, Assim nós fazemos com todas as questões.
+if ListaA[0] == ListaP[0]:
+    x += 15
+if ListaA[1] == ListaP[1]:
+    x += 15
+if ListaA[2] == ListaP[2]:
+    x += 15
+if ListaA[3] == ListaP[3]:
+    x += 15
+if ListaA[4] == ListaP[4]:
+    x += 20
+if ListaA[5] == ListaP[5]:
+    x += 20
+if ListaA[6] == ListaP[6]:
+    x += 20
+if ListaA[7] == ListaP[7]:
+    x += 30
+if ListaA[8] == ListaP[8]:
+    x += 30
+if ListaA[9] == ListaP[9]:
+    x += 30
+
+#No final nós mostramos o nome do aluno e sua quantidade de pontos.
+print("{} acertou {} pontos.".format(Aluno,x))
