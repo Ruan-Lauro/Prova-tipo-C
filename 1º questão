@@ -1,0 +1,43 @@
+#1) Faça um programa em Python em que o usuário deverá informar três valores inteiros positivos, x,
+#y e z. Os valores x e y, sendo x < y, formam um intervalo de valores inteiros. O valor de z deverá ser
+#menor ou igual a y (z <= y). O programa deverá imprimir todos os valores inteiros compreendidos
+#no intervalo [x, y] divisíveis por z. Após impressão, o programa deverá informar também a soma
+#dos valores que são pares impressos.
+#Exemplos:
+#Entradas 1: x = 5, y = 19 e z = 3;
+#Saída 1: 6 9 12 15 18, soma pares= 36
+#Entradas 2: x = 1, y = 16 e z = 4;
+#Saída 2: 4 8 12 16, soma pares = 40
+
+#Primeiro nós atribuímos um valor inteiro para x.
+x = int(input("Escreva um número "))
+
+#Depois atribuímos um valor inteiro para y, mas com uma condição: o valor de y tem que ser maior que x, o contrário, ele não sai do laço.
+while True:
+   y = int(input("Escreva outro número "))
+   if y < x:
+      print("Esse valor tem que ser maior que o anterior")
+   else:
+      break
+
+#Depois atribuímos um valor inteiro para z, mas com uma condição: ele tem que ser menor que y, se não, não irá conseguir sair do laço.
+while True:
+   z = int(input("Escreva um terceiro número "))
+   if z > y:
+      print("Esse valor tem que ser menor que o anterior")
+   else:
+      break
+#Depois usamos o for in range, para encontrarmos os válores que estão entre x e y, temos que adicionar mais 1 no y, pois assim pegamos ele também; mas vamos pegar apenas os valores que sejam divisíveis por z e os valores. Assim nós abrimos uma condição para colocarmos uma vírgula no final do último número divisível por z, sendo ele o próprio y ou um número anterior a y. Assim nós pegamos os números divisíveis por z que também são divisíveis por 2, mas esses que são por 2 nós somamos.
+w = 0
+for i in range(x,y+1):
+   if i%z == 0:
+      if i == y or i == (y-1):
+         print(i,end = ',')
+      else:
+         print(i, end=' ')
+      
+      if i%2 == 0:
+            w += i
+
+#No final nós mostramos os valores divisíveis por z e dentre esses, nós temos os que são por 2, então mostramos a soma deles.           
+print(" soma pares = %i"%w,end=' ')
